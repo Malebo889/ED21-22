@@ -28,9 +28,13 @@ public class Principal {
         asignaturas.mostrar();
         AlgoritmosPila ap = new AlgoritmosPila();
         System.out.println("Calificacion minima: " + ap.notaMinima(asignaturas));
-        System.out.println("Asignatura con nota maxima:");
+        /*System.out.println("Asignatura con nota maxima:");
         Asignatura asignatura = ap.asignaturaNotaMaxima(asignaturas);
         asignatura.mostrar();
+        asignaturas.mostrar();
+        System.out.println("Asignaturas Aprobadas:");
+        ap.mostrarAprobadas(asignaturas);*/
+        asignaturas.mostrar();
     }
 
     public Cola prepararCola() {

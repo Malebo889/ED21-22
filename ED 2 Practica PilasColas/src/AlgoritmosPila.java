@@ -24,28 +24,29 @@ public class AlgoritmosPila {
     }
 
     public double notaMinima(Pila asignaturas) {
-        double resultado = 0;
+        double resultado = Integer.MAX_VALUE;
         if (asignaturas != null) {
-            Asignatura asignatura = asignaturas.getCima();
-            resultado = notaMinimaAux(asignaturas, asignatura);
+            if(!asignaturas.vacia()){
+                Asignatura asignatura = asignaturas.desapilar();
+                resultado = notaMinima(asignaturas);
+                resultado = Math.min(resultado, asignatura.getCalificacion());
+                asignaturas.apilar(asignatura);
+            }
         }
         return resultado;
     }
 
-    private double notaMinimaAux(Pila asignaturas, Asignatura aux) {
-        Asignatura asignatura;
-        if (!asignaturas.vacia()) {
-            asignatura = asignaturas.desapilar();
-            notaMinimaAux(asignaturas, aux);
-            if (asignatura.getCalificacion() < aux.getCalificacion())
-                aux.setCalificacion(asignatura.getCalificacion());
-            asignaturas.apilar(asignatura);
-        }
-        return aux.getCalificacion();
-    }
-
-
     public void mostrarAprobadas(Pila asignaturas) {
-        //Completar
+        if (asignaturas != null) {
+            Asignatura asignatura;
+            if (!asignaturas.vacia()) {
+                asignatura = asignaturas.desapilar();
+                mostrarAprobadas(asignaturas);
+                if (asignatura.getCalificacion() >= 5) {
+                    asignatura.mostrar();
+                }
+                asignaturas.apilar(asignatura);
+            }
+        }
     }
 }
