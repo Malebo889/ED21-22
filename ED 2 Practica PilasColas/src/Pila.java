@@ -11,17 +11,17 @@ public class Pila {
         return cima == null;
     }
 
-    public void apilar(int dato) {
+    public void apilar(Asignatura dato) {
         NodoPila nuevo = new NodoPila(dato, cima);
         cima = nuevo;
         numElementos++;
     }
 
-    public int desapilar() {
-        int valor;
+    public Asignatura desapilar() {
+        Asignatura valor;
         if (this.vacia()) {
             System.out.println("Error, la pila está vacía");
-            valor = -9999;
+            valor = null;
         } else {
             valor = cima.getDato();
             cima = cima.getSiguiente();
@@ -30,11 +30,11 @@ public class Pila {
         return valor;
     }
 
-    public int getCima() {
-        int valor;
+    public Asignatura getCima() {
+        Asignatura valor;
         if (this.vacia()) {
             System.out.println("Error, la pila está vacía");
-            valor = -9999;
+            valor = null;
         } else valor = cima.getDato();
         return valor;
     }
@@ -54,9 +54,9 @@ public class Pila {
 
     public void mostrar() {
         NodoPila auxiliar = cima;
-        System.out.println("Contenido de la pila:");
+        System.out.println("Asignaturas:");
         while (auxiliar != null) {
-            System.out.println(auxiliar.getDato());
+            auxiliar.getDato().mostrar();
             auxiliar = auxiliar.getSiguiente();
         }
         System.out.println("FIN");

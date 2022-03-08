@@ -7,25 +7,30 @@ public class Principal {
         Pila asignaturas = pruebas.prepararPila();
         pruebas.pruebasPila(asignaturas);
 
-        Cola grupo = pruebas.prepararCola();
-        pruebas.pruebasCola(grupo);
+        //Cola grupo = pruebas.prepararCola();
+        //pruebas.pruebasCola(grupo);
     }
 
     public Pila prepararPila() {
         Pila asignaturas = new Pila();
- /*       Asignatura ffi = new Asignatura("Fundamentos Físicos de la Informática", 3.50);
+        Asignatura ffi = new Asignatura("Fundamentos Físicos de la Informática", 3.50);
         Asignatura ed = new Asignatura("Estructuras de Datos", 6.35);
         Asignatura aes = new Asignatura("Aspectos Éticos y Sociales", 7.70);
         Asignatura fs = new Asignatura("Fundamentos de seguridad", 6.75);
         asignaturas.apilar(ffi);
         asignaturas.apilar(ed);
         asignaturas.apilar(aes);
-        asignaturas.apilar(fs);*/
+        asignaturas.apilar(fs);
         return asignaturas;
     }
 
     public void pruebasPila(Pila asignaturas) {
-        //Completar
+        asignaturas.mostrar();
+        AlgoritmosPila ap = new AlgoritmosPila();
+        System.out.println("Calificacion minima: " + ap.notaMinima(asignaturas));
+        System.out.println("Asignatura con nota maxima:");
+        Asignatura asignatura = ap.asignaturaNotaMaxima(asignaturas);
+        asignatura.mostrar();
     }
 
     public Cola prepararCola() {

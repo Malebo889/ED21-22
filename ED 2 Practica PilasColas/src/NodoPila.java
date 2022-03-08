@@ -1,9 +1,9 @@
 public class NodoPila {
 
-    private int dato;
+    private Asignatura dato;
     private NodoPila siguiente;
 
-    public NodoPila(int dato, NodoPila siguiente) {
+    public NodoPila(Asignatura dato, NodoPila siguiente) {
         this.dato = dato;
         this.siguiente = siguiente;
     }
@@ -16,11 +16,11 @@ public class NodoPila {
         this.siguiente = siguiente;
     }
 
-    public int getDato() {
+    public Asignatura getDato() {
         return dato;
     }
 
-    public void setDato(int dato) {
+    public void setDato(Asignatura dato) {
         this.dato = dato;
     }
 }
