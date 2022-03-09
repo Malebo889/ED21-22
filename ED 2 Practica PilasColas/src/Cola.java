@@ -14,7 +14,7 @@ public class Cola {
     }
 
 
-    public void encolar(int dato) {    // Coloca el elemento dato al final de la cola
+    public void encolar(Alumno dato) {    // Coloca el elemento dato al final de la cola
         NodoCola nuevo;
         nuevo = new NodoCola (dato, null);
         if (principio != null)
@@ -24,9 +24,9 @@ public class Cola {
         numElementos++;
     }
 
-    public int desencolar() {    //Devuelve el elemento del primero de la cola y lo elimina Si la cola está vacía, devuelve como resultado 0 y un mensaje de error
+    public Alumno desencolar() {    //Devuelve el elemento del primero de la cola y lo elimina Si la cola está vacía, devuelve como resultado 0 y un mensaje de error
         NodoCola nodo;
-        int resultado = 9999;
+        Alumno resultado = null;
 
         if (principio == null)
             System.out.println("Error, la cola está vacía");
@@ -44,8 +44,8 @@ public class Cola {
 
 
 
-    public int getPrimero() {  //Devuelve el elemento del primero de la cola Si la cola está vacía, devuelve como resultado -999 y un mensaje de error
-        int resultado = -9999;
+    public Alumno getPrimero() {  //Devuelve el elemento del primero de la cola Si la cola está vacía, devuelve como resultado -999 y un mensaje de error
+        Alumno resultado = null;
         if (!this.vacia()) {
             resultado = principio.getDato();
         } else

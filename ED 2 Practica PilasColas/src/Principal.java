@@ -38,7 +38,7 @@ public class Principal {
 
     public Cola prepararCola() {
         Cola grupo = new Cola();
-        /*Alumno a1 = new Alumno("Felipe Arias Gonzalez", "aa1253");
+        Alumno a1 = new Alumno("Felipe Arias Gonzalez", "aa1253");
         Alumno a2 = new Alumno("Manuel Garcia Sacedón", "ax0074");
         Alumno a3 = new Alumno("Margarita Lopez Medina", "mj7726");
         Alumno a4 = new Alumno("Estela Sanchez Arellano", "bc2658");
@@ -58,7 +58,7 @@ public class Principal {
         grupo.encolar(a1);
         grupo.encolar(a2);
         grupo.encolar(a3);
-        grupo.encolar(a4);*/
+        grupo.encolar(a4);
         return grupo;
     }
 
