@@ -59,6 +59,5 @@ public class Pila {
             auxiliar.getDato().mostrar();
             auxiliar = auxiliar.getSiguiente();
         }
-        System.out.println("FIN");
     }
 }

@@ -7,8 +7,8 @@ public class Principal {
         Pila asignaturas = pruebas.prepararPila();
         pruebas.pruebasPila(asignaturas);
 
-        //Cola grupo = pruebas.prepararCola();
-        //pruebas.pruebasCola(grupo);
+        Cola grupo = pruebas.prepararCola();
+        pruebas.pruebasCola(grupo);
     }
 
     public Pila prepararPila() {
@@ -25,6 +25,7 @@ public class Principal {
     }
 
     public void pruebasPila(Pila asignaturas) {
+        System.out.println("------------------------------ Pruebas Pila ------------------------------");
         asignaturas.mostrar();
         AlgoritmosPila ap = new AlgoritmosPila();
         System.out.println("Calificacion minima: " + ap.notaMinima(asignaturas));
@@ -33,7 +34,7 @@ public class Principal {
         asignatura.mostrar();
         System.out.println("Asignaturas Aprobadas:");
         ap.mostrarAprobadas(asignaturas);
-        asignaturas.mostrar();
+        System.out.println();
     }
 
     public Cola prepararCola() {
@@ -63,6 +64,15 @@ public class Principal {
     }
 
     public void pruebasCola(Cola grupo) {
-        //Completar
+        System.out.println("------------------------------ Pruebas Cola ------------------------------");
+        grupo.mostrar();
+        System.out.println();
+        AlgoritmosCola ac = new AlgoritmosCola();
+        ac.mostrarGrupo(grupo);
+        System.out.println("Calificacion media del grupo: " + ac.calificaciónMedia(grupo));
+        System.out.println();
+        Cola aprobados = ac.alumnosAprobados(grupo);
+        System.out.println("Alumnos Aprobados:");
+        aprobados.mostrar();
 	}
 }

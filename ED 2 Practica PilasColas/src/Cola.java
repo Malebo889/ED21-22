@@ -16,7 +16,7 @@ public class Cola {
 
     public void encolar(Alumno dato) {    // Coloca el elemento dato al final de la cola
         NodoCola nuevo;
-        nuevo = new NodoCola (dato, null);
+        nuevo = new NodoCola(dato, null);
         if (principio != null)
             fin.setSiguiente(nuevo);
         else principio = nuevo;
@@ -42,8 +42,6 @@ public class Cola {
         return resultado;
     }
 
-
-
     public Alumno getPrimero() {  //Devuelve el elemento del primero de la cola Si la cola está vacía, devuelve como resultado -999 y un mensaje de error
         Alumno resultado = null;
         if (!this.vacia()) {
@@ -67,13 +65,12 @@ public class Cola {
 
     public void mostrar() {     // Muestra por pantalla el contenido de la cola
         NodoCola auxiliar;
-        System.out.println("Contenido de la cola: ");
+        System.out.println("Contenido del grupo: ");
         auxiliar = principio;
         while (auxiliar != null) {
-            System.out.print(auxiliar.getDato() + "  ");
+            auxiliar.getDato().mostrarAlumno();
             auxiliar = auxiliar.getSiguiente();
         }
-        System.out.println("FIN");
     }
 
     public int getNumElementos() {       // Devuelve el número de elementos de la cola

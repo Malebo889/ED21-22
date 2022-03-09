@@ -37,7 +37,8 @@ public class Alumno {
     }
 
     public void mostrarAlumno() {
-        System.out.println(nombre + "Matr: " + matricula + "(" + getCalificacionMedia() + ")");
+        System.out.println(nombre + ". Matr: " + matricula + " (" + getCalificacionMedia() + ")");
+        asignaturas.mostrar();
     }
 
     private double calcularMedia(Pila asignaturas) {
