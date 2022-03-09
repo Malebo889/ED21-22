@@ -56,6 +56,7 @@ public class Principal {
         Asignatura algebra = new Asignatura("Álgebra", 5);
         a4.anadirAsignatura(algebra);
         a4.anadirAsignatura(fs);
+        a4.anadirAsignatura(ed);
         grupo.encolar(a1);
         grupo.encolar(a2);
         grupo.encolar(a3);

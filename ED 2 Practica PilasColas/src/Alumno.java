@@ -21,7 +21,10 @@ public class Alumno {
     }
 
     public double getCalificacionMedia() {
-        return calcularMedia(this.asignaturas) / numAsignaturas;
+        if (asignaturas.vacia())
+            return 0;
+        else
+            return calcularMedia(this.asignaturas) / numAsignaturas;
     }
 
     public int getNumAsignaturas() {
@@ -37,8 +40,13 @@ public class Alumno {
     }
 
     public void mostrarAlumno() {
-        System.out.println(nombre + ". Matr: " + matricula + " (" + getCalificacionMedia() + ")");
-        asignaturas.mostrar();
+        if (numAsignaturas > 0) {
+            System.out.println(nombre + ". Matr: " + matricula + " (" + getCalificacionMedia() + ")");
+            asignaturas.mostrar();
+        } else {
+            System.out.println(nombre + ". Matr: " + matricula + " (" + 0.0 + ")");
+            System.out.println("No esta matriculado en ninguna asignatura.");
+        }
     }
 
     private double calcularMedia(Pila asignaturas) {
