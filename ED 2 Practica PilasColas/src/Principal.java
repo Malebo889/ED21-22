@@ -75,5 +75,6 @@ public class Principal {
         Cola aprobados = ac.alumnosAprobados(grupo);
         System.out.println("Alumnos Aprobados:");
         aprobados.mostrar();
+        System.out.println("Calificacion media de aprobados: " + ac.calificaciónMedia(aprobados));
 	}
 }
