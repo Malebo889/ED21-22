@@ -1,34 +1,45 @@
 public class GrupoAlumnos {
 
-	private String nombre;
-	private ListaCalificada listaAlumnos;
+    private String nombre;
+    private ListaCalificada listaAlumnos;
 
-	public GrupoAlumnos(String nombre) {
-		this.nombre = nombre;
-		listaAlumnos = new ListaCalificada();
-	}
+    public GrupoAlumnos(String nombre) {
+        this.nombre = nombre;
+        listaAlumnos = new ListaCalificada();
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void nuevoAlumno(Alumno alumno) {
+    public void nuevoAlumno(Alumno alumno) {
+        if (alumno != null) {
+            this.listaAlumnos.insertar(alumno);
+        }
+    }
 
-	}
+    public int getNumAlumnos() {
+        return this.listaAlumnos.getNumElementos();
+    }
 
-	public int getNumAlumnos() {
-		return 0;  // Eliminar esta línea al codificar el método
-	}
+    public Alumno getAlumno(int matricula) {
+        return listaAlumnos.getElemento(matricula);
+    }
 
-	public Alumno getAlumno(int matricula) {
-		return null; // Eliminar esta línea al codificar el método
-	}
+    public double porcentajeAprobados(String nombreAsignatura) {
+        double resul = 0;
 
-	public double porcentajeAprobados(String nombreAsignatura) {
-		return 0.0;  // Eliminar esta línea al codificar el método
-	}
+        IteradorListaCalificada itc = this.listaAlumnos.getIterador();
+        while (itc.hasNext()) {
+            if (itc.next().estaAprobado(nombreAsignatura)) {
+                resul++;
+            }
+        }
+
+        return (resul / listaAlumnos.getNumElementos()) * 100;
+    }
 }

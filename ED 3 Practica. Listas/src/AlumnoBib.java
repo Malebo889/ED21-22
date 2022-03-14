@@ -1,13 +1,16 @@
-public class Alumno {
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class AlumnoBib {
 
     private String nombre;
     private int matricula;
-    private ListaOrdinal expediente;
+    private LinkedList<Evaluacion> expediente;
 
-    public Alumno(String nombre, int matricula) {
+    public AlumnoBib(String nombre, int matricula) {
         this.nombre = nombre;
         this.matricula = matricula;
-        expediente = new ListaOrdinal();
+        expediente = new LinkedList<>();
     }
 
     public int getMatricula() {
@@ -27,12 +30,12 @@ public class Alumno {
     }
 
     public void nuevaEvaluacion(Evaluacion evaluacion) {
-        expediente.insertar(evaluacion);
+        expediente.add(evaluacion);
     }
 
     public boolean estaAprobado(String nombreAsig) {
         boolean aprobado = false;
-        IteradorListaOrdinal it = expediente.getIterador();
+        Iterator<Evaluacion> it = expediente.iterator();
         while (it.hasNext() && !aprobado) {
             Evaluacion evaluacion = it.next();
             if (evaluacion.getNombreAsignatura().equals(nombreAsig) &&
@@ -46,7 +49,7 @@ public class Alumno {
     public ListaOrdinal asignaturasAprobadas() {
         Evaluacion ev;
         ListaOrdinal aprobadas = new ListaOrdinal();
-        IteradorListaOrdinal it = this.expediente.getIterador();
+        Iterator<Evaluacion> it = this.expediente.iterator();
         while (it.hasNext()) {
             ev = it.next();
             if (ev.getNota() >= 5)
@@ -73,12 +76,12 @@ public class Alumno {
 
     public void mostrar() {
         System.out.println(nombre + ". Matricula: " + matricula);
-        IteradorListaOrdinal it = this.expediente.getIterador();
-        if (this.expediente.getNumElementos() > 0) {
+        Iterator<Evaluacion> it = this.expediente.iterator();
+        if (this.expediente.size() > 0) {
             while (it.hasNext()) {
                 it.next().mostrar();
             }
-            System.out.println(this.expediente.getNumElementos() + " Evaluaciones y " + this.getNumAprobadas() + " asiganturas aprobadas con calificacion media " + this.mediaAprobadas());
+            System.out.println(this.expediente.size() + " Evaluaciones y " + this.getNumAprobadas() + " asiganturas aprobadas con calificacion media " + this.mediaAprobadas());
         } else System.out.println("No ha realizado ninguna evaluacion.");
         System.out.println("---------------------------------");
     }
